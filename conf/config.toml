@@ -1,11 +1,24 @@
 [project]
-name = "SuperStore"
-description = "Data Management Project"
+name = "Canada Weather"
+description = "Collect Weather Information in Canada"
 version = "1.0.0"
 
 [database]
-host = "localhost"
-user = "root"
-password = "root"
-port = 3306
-db_name = "GBC_Superstore"
+[database.mysql]
+host        = "mysql"
+user        = "root"
+password    = "root"
+port        = 3306
+db_name     = "employees"
+
+[database.postgres]
+host        = "hadoop_postgres"
+user        = "jupyter"
+password    = "jupyter"
+port        = 5432
+db_name     = "adv"
+
+[api]
+[api.visualcrossing]
+key         = "3QMJPX68WQVXPD3QR28X8U5SA"
+
