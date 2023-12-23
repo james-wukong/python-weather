@@ -18,7 +18,16 @@ password    = "jupyter"
 port        = 5432
 db_name     = "adv"
 
+[database.mongodb]
+host        = "mongo"
+user        = ""
+password    = ""
+port        = 27017
+db_name     = ""
+
 [api]
 [api.visualcrossing]
+api_server  = "https://weather.visualcrossing.com/VisualCrossingWebServices/rest/services/timeline/"
+user        = "qianfan.cheng.cn@gmail.com"
 key         = "3QMJPX68WQVXPD3QR28X8U5SA"
 

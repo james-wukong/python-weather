@@ -16,6 +16,7 @@ This project plans to:
 - fetch data from weather api provided by [VisualCrossing](https://www.visualcrossing.com)
 - save it in mysql or csv/json files in hdfs
 - load data sources in hive
+- load data with pyspark
 - data pre-preparation: clean pipeline
 - make prediction
 - create visualization with tableau
