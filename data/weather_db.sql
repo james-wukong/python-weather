@@ -4,6 +4,7 @@ USE weather_api;
 
 CREATE TABLE stations (
     id          SMALLINT UNSIGNED    AUTO_INCREMENT,
+    name_abbr   VARCHAR(100)     NOT NULL,
     name        VARCHAR(10)     NOT NULL,
     distance    INT UNSIGNED    NOT NULL,
     latitude    DECIMAL(10, 7)    NOT NULL,
@@ -14,7 +15,7 @@ CREATE TABLE stations (
     PRIMARY KEY (id)
 );
 ALTER TABLE `weather_api`.`stations` 
-ADD UNIQUE INDEX `unq_name`(`name`) USING BTREE;
+ADD UNIQUE INDEX `unq_name`(`name_abbr`) USING BTREE;
 
 CREATE TABLE weather (
     id          BIGINT UNSIGNED    AUTO_INCREMENT,

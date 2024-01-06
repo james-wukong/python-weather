@@ -9,7 +9,7 @@ host        = "mysql"
 user        = "root"
 password    = "root"
 port        = 3306
-db_name     = "employees"
+db_name     = "weather_api"
 
 [database.postgres]
 host        = "hadoop_postgres"

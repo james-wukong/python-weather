@@ -2,6 +2,7 @@ import os
 import requests
 import toml
 from src.constants import ROOT_DIR
+from src.database.mysql_crud import insert_weather_data
 
 class Weather():
     def __init__(self):
@@ -26,5 +27,11 @@ class Weather():
 
         return resp.status_code, False
     
-    def mysql_weather_data():
-        pass
+    def mysql_weather_insert_data(self, weather_json = ''):
+        # get data from api
+        if not weather_json:
+            _, weather_json = self.fetch_weather_data()
+        
+        insert_weather_data(weather_json)
+
+        return weather_json

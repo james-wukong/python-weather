@@ -4,10 +4,15 @@ from pymongo import MongoClient
 from abc import ABC, abstractmethod
 
 class Database(ABC):
-   conn_params = {}
-   cnx = None
+    """
+    Singleton class for managing database connections.
+    """
 
-   def __init__(self, **kwargs):
+    conn_params = {}
+    cnx = None
+    _instance = None
+
+    def __init__(self, **kwargs):
         if kwargs['host']:
             self.conn_params['host'] = kwargs['host']
         if kwargs['user']:
@@ -18,18 +23,16 @@ class Database(ABC):
            self.conn_params['database'] = kwargs['database']
         if kwargs['port']:
             self.conn_params['port'] = kwargs['port']
-        
-
-   @abstractmethod
-   def connection(self):
+    
+    def __call__(cls, *args, **kwargs):
+        if cls._instance is None:
+            cls._instance = super().__call__(*args, **kwargs)
+            cls._instance.cnx = None
+        return cls._instance
+    
+    @abstractmethod
+    def connection(self):
         pass
-   
-   def __del__(self):
-        try:
-            self.cnx.close()
-        finally:
-            pass
-  
 
 class PostgreSqlDB(Database):
     def connection(self):
