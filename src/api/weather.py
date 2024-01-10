@@ -28,7 +28,7 @@ class Weather:
 
         return resp.status_code, False
     
-    def mysql_weather_insert_data(self, weather_json = ''):
+    def mysql_weather_insert_data(self, weather_json=''):
         # get data from api
         if not weather_json:
             _, weather_json = self.fetch_weather_data()
