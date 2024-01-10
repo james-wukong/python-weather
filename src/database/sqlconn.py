@@ -3,6 +3,7 @@ import psycopg
 from pymongo import MongoClient
 from abc import ABC, abstractmethod
 
+
 class Database(ABC):
     """
     Singleton class for managing database connections.
@@ -34,6 +35,7 @@ class Database(ABC):
     def connection(self):
         pass
 
+
 class PostgreSqlDB(Database):
     def connection(self):
         self.cnx = psycopg.connect(**self.conn_params)
@@ -45,17 +47,19 @@ class MySqlDB(Database):
         self.cnx = MySQLdb.connect(**self.conn_params)
         return self.cnx
 
+
 class MongoDB(Database):
     def connection(self):
         self.cnx = MongoClient(**self.conn_params)
         return self.cnx
 
+
 class DbFactory:
-    '''
+    """
     database: PostgreSqlDB() | MySqlDB() | MongoDB
     Usage:
         factory = DbFactory()
         factory.get_database_connection(PostgreSqlDB())
-    '''
+    """
     def get_database_connection(self, database):
         return database.connection()

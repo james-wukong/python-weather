@@ -20,6 +20,7 @@ conn = DbFactory()
 cnx = conn.get_database_connection(MySqlDB(**mysql_param))
 cursor = cnx.cursor()
 
+
 def insert_employee_test():
     tomorrow = datetime.now().date() + timedelta(days=1)
 
@@ -55,6 +56,7 @@ def insert_employee_test():
     cursor.close()
     cnx.close()
 
+
 def insert_weather_data(weather_json):
     conn = DbFactory()
     cnx = conn.get_database_connection(MySqlDB(**mysql_param))
@@ -71,6 +73,7 @@ def insert_weather_data(weather_json):
 
     cursor.close()
     cnx.close()
+
 
 def insert_weather_stations(stations):
     # insert stations
@@ -93,6 +96,7 @@ def insert_weather_stations(stations):
                 print(f'caught error: {err.args}')
                 cnx.rollback()
 
+
 def insert_weather_day_data(weather_data):
     ins_stmt = ("INSERT INTO stations "
                      "(`date`, `datetime_epoch`, `datetime`, `type`, `tempmax`, "
@@ -114,7 +118,6 @@ def insert_weather_day_data(weather_data):
     # insert weather data
     for day in weather_data:
         for hour in day['hours']:
-            hour
             hour['datetime'] = day['datetime'] + ' ' + hour['datetime']
             print(hour)
             break

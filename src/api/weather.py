@@ -4,7 +4,8 @@ import toml
 from src.constants import ROOT_DIR
 from src.database.mysql_crud import insert_weather_data
 
-class Weather():
+
+class Weather:
     def __init__(self):
         config = toml.load(os.path.join(ROOT_DIR, 'conf', 'config.toml'))
         self.weather_api = config['api']['visualcrossing']['api_server']
