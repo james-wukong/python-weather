@@ -43,13 +43,13 @@ def insert_weather_data(weather_json:dict) -> None:
     cursor.close()
     cnx.close()
 
-def insert_weather_location(location:dict) -> int|None:
+def insert_weather_location(location:dict) -> int:
     ins_stmt = ("INSERT INTO locations "
                      "(timezone, latitude, longitude, resolved_addr, address, description) "
                      "VALUES (%(timezone)s, %(latitude)s, %(longitude)s, %(resolved_addr)s, %(address)s, %(description)s)")
     get_stmt = ("SELECT id FROM locations WHERE latitude=%(latitude)s AND longitude=%(longitude)s ")
     cursor.execute(get_stmt, {'latitude': location['latitude'], 'longitude': location['longitude']})
-    id = None
+    
     row = cursor.fetchone()
     if not row:
         try:
