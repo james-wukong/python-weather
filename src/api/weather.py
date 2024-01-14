@@ -11,7 +11,7 @@ class Weather:
         self.weather_api = config['api']['visualcrossing']['api_server']
         self.key_api = config['api']['visualcrossing']['key']
 
-    def fetch_weather_data(self, loc: str = 'Toronto,CA', date: str = ''):
+    def fetch_weather_data(self, loc: str = 'Toronto,CA', date: str = '') -> tuple:
         api = os.path.join(self.weather_api, loc, date)
         try:
             resp = requests.get(api, params={'key': self.key_api})
@@ -28,7 +28,7 @@ class Weather:
 
         return resp.status_code, False
     
-    def mysql_weather_insert_data(self, weather_json=''):
+    def mysql_weather_insert_data(self, weather_json='') -> str:
         # get data from api
         if not weather_json:
             _, weather_json = self.fetch_weather_data()
