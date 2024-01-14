@@ -24,7 +24,8 @@ class Database(ABC):
            self.conn_params['database'] = kwargs['database']
         if kwargs['port']:
             self.conn_params['port'] = kwargs['port']
-    
+
+    @classmethod
     def __call__(cls, *args, **kwargs):
         if cls._instance is None:
             cls._instance = super().__call__(*args, **kwargs)
@@ -63,3 +64,4 @@ class DbFactory:
     """
     def get_database_connection(self, database):
         return database.connection()
+    
