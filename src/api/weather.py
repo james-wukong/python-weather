@@ -41,7 +41,11 @@ class Weather:
         # get data from api
         if not weather_json:
             _, weather_json = self.fetch_weather_data()
-        
-        WeatherDataToMysql.insert_weather_data(weather_json)
+            if not weather_json:
+                raise ValueError(
+                    f'empty value from weather_json: {weather_json}'
+                )
+        weather_data_save = WeatherDataToMysql()
+        weather_data_save.insert_weather_data(weather_json)
 
         return weather_json

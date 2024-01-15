@@ -38,8 +38,7 @@ class WeatherDataToMysql:
         self.cursor.close()
         self.cnx.close()
 
-    @classmethod
-    def insert_weather_data(cls, weather_json:dict) -> None:
+    def insert_weather_data(self, weather_json:dict) -> None:
         """
         insert data fetched from weather api
         Args:
@@ -53,13 +52,13 @@ class WeatherDataToMysql:
                     'resolved_addr': weather_json['resolvedAddress'], 'address': weather_json['address'], 'description': weather_json['description']}
 
         # insert locations
-        loc_id = cls.__insert_weather_location(locations)
+        loc_id = self.__insert_weather_location(locations)
 
         # insert stations
-        cls.__insert_weather_stations(stations)
+        self.__insert_weather_stations(stations)
         
         # insert weathers
-        cls.__insert_weather_day_data(days, loc_id)
+        self.__insert_weather_day_data(days, loc_id)
 
         # cursor.close()
         # cnx.close()
@@ -198,7 +197,7 @@ class WeatherDataToMysql:
                 hour_info = self.cursor.fetchone()
                 if not hour_info:
                     try:
-                        self.ursor.execute(ins_stmt, hour)
+                        self.cursor.execute(ins_stmt, hour)
                         # print(cursor._executed)
                         # Make sure data is committed to the database
                         self.cnx.commit()
