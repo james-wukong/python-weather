@@ -6,8 +6,12 @@ Data Source: [Meteorological Service of Canada (MSC) Datamart](https://eccc-msc.
 
 ## Installation
 
-# pip freeze > requirements.txt
-# pip install -r requirements.txt
+```sh
+# export requirements.txt
+pip freeze > requirements.txt
+# import requirements.txt
+pip install -r requirements.txt
+```
 
 ## Work Flow
 
