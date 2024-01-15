@@ -4,7 +4,7 @@ import toml
 from datetime import datetime, date
 from dateutil.relativedelta import relativedelta
 from src.constants import ROOT_DIR
-from src.database.mysql_crud import insert_weather_data
+from src.database.mysql_crud import WeatherDataToMysql
 
 
 class Weather:
@@ -42,6 +42,6 @@ class Weather:
         if not weather_json:
             _, weather_json = self.fetch_weather_data()
         
-        insert_weather_data(weather_json)
+        WeatherDataToMysql.insert_weather_data(weather_json)
 
         return weather_json
