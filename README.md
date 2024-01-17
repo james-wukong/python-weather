@@ -2,7 +2,9 @@
 
 The main purpose is to have some practical exercise with python programming, hadoop, hive, and spark.
 
-Data Source: [Meteorological Service of Canada (MSC) Datamart](https://eccc-msc.github.io/open-data/msc-datamart/readme_en/)
+Data Source: 
+1. [Meteorological Service of Canada (MSC) Datamart](https://eccc-msc.github.io/open-data/msc-datamart/readme_en/)
+1. [VisualCrossing](https://www.visualcrossing.com)
 
 ## Installation
 
