@@ -1,9 +1,8 @@
 import toml
 import os
 import MySQLdb as mysql_db
-from datetime import date, datetime, timedelta
 from src.constants import ROOT_DIR
-from src.database.sqlconn import DbFactory, MySqlDB, PostgreSqlDB
+from src.database.sqlconn import DbFactory, MySqlDB
 
 
 class WeatherDataToMysql:
@@ -80,6 +79,7 @@ class WeatherDataToMysql:
         row = self.cursor.fetchone()
         if not row:
             try:
+                print(f'inserting location...')
                 id = self.cursor.execute(ins_stmt, location)
                 # print(cursor._executed)
                 # Make sure data is committed to the database
@@ -110,6 +110,7 @@ class WeatherDataToMysql:
             row = self.cursor.fetchone()
             if not row:
                 try:
+                    print(f'inserting station...')
                     self.cursor.execute(ins_stmt, value)
                     # print(cursor._executed)
                     # Make sure data is committed to the database
@@ -165,6 +166,8 @@ class WeatherDataToMysql:
             day_info = self.cursor.fetchone()
             if not day_info:
                 try:
+
+                    print(f'inserting day info...')
                     self.cursor.execute(ins_stmt, day)
                     # print(cursor._executed)
                     # Make sure data is committed to the database
@@ -197,6 +200,8 @@ class WeatherDataToMysql:
                 hour_info = self.cursor.fetchone()
                 if not hour_info:
                     try:
+
+                        print(f'inserting hour infol...')
                         self.cursor.execute(ins_stmt, hour)
                         # print(cursor._executed)
                         # Make sure data is committed to the database

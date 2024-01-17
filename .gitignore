@@ -5,7 +5,7 @@ __pycache__/
 .idea/
 test.py
 data/res.json
-
+.DS_Store
 # C extensions
 *.so
 

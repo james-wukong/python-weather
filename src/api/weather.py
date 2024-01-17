@@ -13,6 +13,8 @@ class Weather:
                            date_end: str = ''):
         config = toml.load(os.path.join(ROOT_DIR, 'conf', 'config.toml'))
         self.weather_api = config['api']['visualcrossing']['api_server']
+        # key         = ["DZXW6VHTAEDNY7QSGDRRHTR97", "JZV9ZSMCZY8M9MRZBU2W4UZQK"]
+        # https://weather.visualcrossing.com/VisualCrossingWebServices/rest/services/timeline/Toronto%2COntario%2CCA/2023-07-03/2023-08-12?unitGroup=metric&include=hours&key=WAAW8MLB5VR39UDYRBJW4QL44&contentType=csv
         self.key_api = config['api']['visualcrossing']['key']
         self.loc = loc
         date_tmp = list(map(int, date_start.split('-')))
@@ -23,7 +25,7 @@ class Weather:
     def fetch_weather_data(self) -> tuple:
         api = os.path.join(self.weather_api, self.loc, self.date_start, self.date_end)
         try:
-            resp = requests.get(api, params={'key': self.key_api})
+            resp = requests.get(api, params={'key': self.key_api[0]})
             resp.raise_for_status() 
         except requests.exceptions.HTTPError as errh: 
             print(f"HTTP Error, {errh.args[0]}")

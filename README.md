@@ -1,6 +1,6 @@
 ## This project is trying to collect and analyze weather data
 
-The main purpose is to have some practical exercise with hadoop, hive, and spark.
+The main purpose is to have some practical exercise with python programming, hadoop, hive, and spark.
 
 Data Source: [Meteorological Service of Canada (MSC) Datamart](https://eccc-msc.github.io/open-data/msc-datamart/readme_en/)
 
