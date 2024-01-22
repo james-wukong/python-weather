@@ -29,5 +29,5 @@ db_name     = ""
 [api.visualcrossing]
 api_server  = "https://weather.visualcrossing.com/VisualCrossingWebServices/rest/services/timeline/"
 user        = "qianfan.cheng.cn@gmail.com"
-#key         = ["DZXW6VHTAEDNY7QSGDRRHTR97", "JZV9ZSMCZY8M9MRZBU2W4UZQK", "WAAW8MLB5VR39UDYRBJW4QL44"]
+#key         = ["DZXW6VHTAEDNY7QSGDRRHTR97", "JZV9ZSMCZY8M9MRZBU2W4UZQK", "WAAW8MLB5VR39UDYRBJW4QL44", "PCYATWMNKGD3W8BNLENA37QGQ"]
 key         = ["DZXW6VHTAEDNY7QSGDRRHTR97"]
